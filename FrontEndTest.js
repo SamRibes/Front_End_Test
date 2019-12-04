@@ -30,7 +30,21 @@ class TreeTraversal {
 
     static getParent(childID, jsonObject) {
 
-    jsonObject.find(node => node.id == childID);
+        var i;
+
+        for (i = 0; i < jsonObject.length; i++) {
+            if (jsonObject[i].children === undefined)
+            {
+                flattenedArray.push(jsonObject[i]);
+            }
+            else
+            {
+                let recursedArray = TreeTraversal.flatten(jsonObject[i].children)
+                flattenedArray = flattenedArray.concat(recursedArray);
+            }
+        }
+
+        jsonObject.find(node => node.id == childID);
 
         return flattenedArray.find(node => node.id == parentId);
     }
