@@ -1,17 +1,30 @@
-[{
-	"name": "ABC",
-	"id": "e597cb3f-bc6a-43e6-9c90-26cc38fbbb32"
-}, {
-	"name": "FORT",
-	"id": "c64ac3d7-5e88-40ed-8d6f-e7f10d21c5bc",
-	"children": [{
-		"name": "test@app.live",
-		"id": "697eae2f-40dd-445e-a0f0-a918f3a4d5c0"
-	}]
-}, {
-	"name": "London",
-	"id": "ea816550-8dce-4534-a8a2-ad73229f4aca"
-}, {
-	"name": "RENAMING a",
-	"id": "ecac3eed-6691-4e95-9e3e-30ac5b725fca"
-}]
+[
+	{
+		"name": "ABC",
+		"id": "e597cb3f-bc6a-43e6-9c90-26cc38fbbb32"
+	},
+	{
+		"name": "FORT",
+		"id": "c64ac3d7-5e88-40ed-8d6f-e7f10d21c5bc",
+		"children": [
+			{
+				"name": "test@app.live",
+				"id": "697eae2f-40dd-445e-a0f0-a918f3a4d5c0",
+				"children": [
+					{
+						"name": "NEW NODE",
+						"id": "697eae2f-40dd-445e-a0f0-111111111111"
+					}
+				]
+			}
+		]
+	},
+	{
+		"name": "London",
+		"id": "ea816550-8dce-4534-a8a2-ad73229f4aca"
+	},
+	{
+		"name": "RENAMING a",
+		"id": "ecac3eed-6691-4e95-9e3e-30ac5b725fca"
+	}
+]
