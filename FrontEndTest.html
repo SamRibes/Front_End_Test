@@ -1,12 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Front End Test for Clarksons</title>
+    <script>
+
+        function handleFetch(apiUrl) {
+            fetch(apiUrl)
+                .then(function (message) {
+                    //code in here
+
+                })
+            return null;
+        }
+
+        function simulatedHandleFetch() {
+            jsonString = `
+            {
+                "message": "hello there",
+                "tags":
+                [
+                    "user tag 1",
+                    "user tag 2",
+                    "SYS: system tag 1",
+                    "PAR: system tag 2",
+                    "ACT: system tag 3"
+                ]
+            }`
+            var data = JSON.parse(jsonString);
+
+            document.getElementById("message").innerHTML = data.message;
+            var i;
+            for (i = 0; i < data.tags.length; i++) {
+                var node = document.createElement("LI");
+                var textnode = document.createTextNode(data.tags[i]);
+                node.appendChild(textnode);
+                document.getElementById("tags").appendChild(node); 
+            }
+        }
+    </script>
 </head>
-<body>
-    
+
+<body onload="simulatedHandleFetch();">
+    <h3 id="message"></h3>
+    <ul id="tags">
+    </ul>
 </body>
+
 </html>
