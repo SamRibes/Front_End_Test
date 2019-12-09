@@ -7,6 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Front End Test for Clarksons</title>
     <style>
+        body{
+            font-family: 'Courier New', Courier, monospace;
+        }
         li{
             list-style: none;
         }
@@ -27,15 +30,13 @@
             background: black;
         }
     </style>
+
     <script>
-
-        function handleFetch(apiUrl) {
+        function handleFetch(apiUrl) {      
             fetch(apiUrl)
-                .then(function (message) {
+                .then(function (data) {
                     //code in here
-
                 })
-            return null;
         }
 
         function simulatedHandleFetch() {
@@ -60,31 +61,37 @@
             var i;
             for (i = 0; i < data.tags.length; i++) {
 
-                var tag = document.createElement("LI");
+                var list = document.createElement("LI");
 
-                var tagPrefix = data.tags[i].substring(0, 3)
+                var tag = data.tags[i];
+
+                var tagPrefix = data.tags[i].substring(0, 4)
 
                 switch (tagPrefix) {
-                    case "SYS":
-                        tag.className = "SYS";
+                    case "SYS:":
+                        list.className = "SYS";
+                        tag = tag.substring(4);
                         break;
-                    case "PAR":
-                        tag.className = "PAR";
+                    case "PAR:":
+                        list.className = "PAR";
+                        tag = tag.substring(4);
                         break;
-                    case "ACT":
-                        tag.className = "ACT";
+                    case "ACT:":
+                        list.className = "ACT";
+                        tag = tag.substring(4);
                         break;
                     default:
-                        tag.className = "USR";
+                        list.className = "USR";
                         break;
                 }
-                
-                var textnode = document.createTextNode(data.tags[i]);
-                tag.appendChild(textnode);
-                document.getElementById("tags").appendChild(tag);
+
+                var textnode = document.createTextNode(tag);
+                list.appendChild(textnode);
+                document.getElementById("tags").appendChild(list);
             }
         }
     </script>
+
 </head>
 
 <body onload="simulatedHandleFetch();">
