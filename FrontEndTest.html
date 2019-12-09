@@ -6,6 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Front End Test for Clarksons</title>
+    <style>
+        li{
+            list-style: none;
+        }
+        .SYS {
+            color: black;
+            background:cadetblue;
+        }
+        .PAR {
+            color: white;
+            background: blue;
+        }
+        .ACT {
+            color: black;
+            background: chocolate;
+        }
+        .USR {
+            color: white;
+            background: black;
+        }
+    </style>
     <script>
 
         function handleFetch(apiUrl) {
@@ -18,6 +39,7 @@
         }
 
         function simulatedHandleFetch() {
+
             jsonString = `
             {
                 "message": "hello there",
@@ -25,20 +47,41 @@
                 [
                     "user tag 1",
                     "user tag 2",
-                    "SYS: system tag 1",
-                    "PAR: system tag 2",
-                    "ACT: system tag 3"
+                    "SYS:system tag 1",
+                    "PAR:system tag 2",
+                    "ACT:system tag 3"
                 ]
             }`
+
             var data = JSON.parse(jsonString);
 
             document.getElementById("message").innerHTML = data.message;
+
             var i;
             for (i = 0; i < data.tags.length; i++) {
-                var node = document.createElement("LI");
+
+                var tag = document.createElement("LI");
+
+                var tagPrefix = data.tags[i].substring(0, 3)
+
+                switch (tagPrefix) {
+                    case "SYS":
+                        tag.className = "SYS";
+                        break;
+                    case "PAR":
+                        tag.className = "PAR";
+                        break;
+                    case "ACT":
+                        tag.className = "ACT";
+                        break;
+                    default:
+                        tag.className = "USR";
+                        break;
+                }
+                
                 var textnode = document.createTextNode(data.tags[i]);
-                node.appendChild(textnode);
-                document.getElementById("tags").appendChild(node); 
+                tag.appendChild(textnode);
+                document.getElementById("tags").appendChild(tag);
             }
         }
     </script>
