@@ -130,7 +130,7 @@ class TreeTraversal {
 
 //parsing the tree.json into a js object I can use
 var fs = require("fs");
-var jsonString = fs.readFileSync("tree.json").toString('utf-8');
+var jsonString = fs.readFileSync("JSON/tree.json").toString('utf-8');
 
 
 //Call all functions and print to json files
@@ -141,7 +141,7 @@ var tree = JSON.parse(jsonString);
 
 var flattenedTree = TreeTraversal.flatten(tree);
 
-fs.writeFile("TreeTraversal1.json", JSON.stringify(flattenedTree), function (err) {
+fs.writeFile("JSON/TreeTraversal1.json", JSON.stringify(flattenedTree), function (err) {
     if (err) {
         console.log(err);
     }
@@ -153,7 +153,7 @@ var tree = JSON.parse(jsonString);
 
 var retreivedParent = TreeTraversal.getParent("697eae2f-40dd-445e-a0f0-111111111111", tree);
 
-fs.writeFile("TreeTraversal2.json", JSON.stringify(retreivedParent), function (err) {
+fs.writeFile("JSON/TreeTraversal2.json", JSON.stringify(retreivedParent), function (err) {
     if (err) {
         console.log(err);
     }
@@ -170,7 +170,7 @@ var newNode = {
 
 var treeWithAddedNode = TreeTraversal.addNode(tree, "c64ac3d7-5e88-40ed-8d6f-e7f10d21c5bc", newNode, 0);
 
-fs.writeFile("TreeTraversal3.json", JSON.stringify(treeWithAddedNode), function (err) {
+fs.writeFile("JSON/TreeTraversal3.json", JSON.stringify(treeWithAddedNode), function (err) {
     if (err) {
         console.log(err);
     }

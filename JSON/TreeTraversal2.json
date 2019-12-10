@@ -1,0 +1,10 @@
+{
+    "name": "test@app.live",
+    "id": "697eae2f-40dd-445e-a0f0-a918f3a4d5c0",
+    "children": [
+        {
+            "name": "NEW NODE",
+            "id": "697eae2f-40dd-445e-a0f0-111111111111"
+        }
+    ]
+}
